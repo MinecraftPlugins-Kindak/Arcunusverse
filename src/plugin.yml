@@ -1,0 +1,6 @@
+main: se.fadi.arcanusverse.Main
+name: Arcanusverse
+version: 1.0
+author: Arcanus
+
+commands:

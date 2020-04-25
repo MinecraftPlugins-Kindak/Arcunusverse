@@ -1,7 +1,6 @@
 package se.fadi.configuration;
 
 import org.bukkit.configuration.file.FileConfiguration;
-
 import java.io.File;
 
 public class WorldConfigManager extends ConfigManager {

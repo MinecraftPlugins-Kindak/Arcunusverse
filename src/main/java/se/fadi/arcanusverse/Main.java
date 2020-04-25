@@ -1,18 +1,19 @@
 package se.fadi.arcanusverse;
 
+import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
 import se.fadi.configuration.ConfigFactory;
 
 public final class Main extends JavaPlugin {
 
-    public Main() {
+    public static final String prefix = ChatColor.GREEN + "[ArcanusVerse]";
 
+    private Main() {
+        throw new UnsupportedOperationException();
     }
 
-    public static Main instance;
-
     public static Main getInstance() {
-        return instance == null ? new Main() : instance;
+        return Main.getPlugin(Main.class);
     }
 
     @Override

@@ -30,7 +30,7 @@ public abstract class ConfigManager {
             try {
                 file.createNewFile();
             } catch (IOException e) {
-                Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.RED + "ERROR: Could not create worlds.yml.");
+                Bukkit.getServer().getConsoleSender().sendMessage(Main.prefix + ChatColor.RED + " ERROR: Could not create worlds.yml.");
             }
         }
 
@@ -40,14 +40,14 @@ public abstract class ConfigManager {
     protected void saveConfig(File file, FileConfiguration config) {
         try {
             config.save(file);
-            Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.GREEN + "The config " + file.getName() + " has been successfully saved.");
+            Bukkit.getServer().getConsoleSender().sendMessage(Main.prefix + ChatColor.GREEN + " The config " + file.getName() + " has been successfully saved.");
         } catch (IOException e) {
-            Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.RED + "ERROR: Could not save " + file.getName() + ".");
+            Bukkit.getServer().getConsoleSender().sendMessage(Main.prefix + ChatColor.RED + " ERROR: Could not save " + file.getName() + ".");
         }
     }
 
     protected void reloadConfig(File file, FileConfiguration config) {
         config = YamlConfiguration.loadConfiguration(file);
-        Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.GREEN + "The config " + file.getName() + " has been reloaded.");
+        Bukkit.getServer().getConsoleSender().sendMessage(Main.prefix + ChatColor.GREEN + " The config " + file.getName() + " has been reloaded.");
     }
 }

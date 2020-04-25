@@ -10,7 +10,6 @@ public final class ConfigFactory {
     }
 
     public static void loadConfigurationFiles() {
-        WorldConfigManager worldConfig = new WorldConfigManager();
 
         for (ConfigManager manager : getConfigurationFiles()) {
             manager.loadConfig();
