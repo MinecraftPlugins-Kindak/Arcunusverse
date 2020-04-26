@@ -2,15 +2,12 @@ package se.fadi.arcanusverse;
 
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
-import se.fadi.configuration.ConfigFactory;
+import se.fadi.configuration.ConfigurationLoader;
+import se.fadi.worldloader.WorldLoader;
 
 public final class Main extends JavaPlugin {
 
-    public static final String prefix = ChatColor.GREEN + "[ArcanusVerse]";
-
-    private Main() {
-        throw new UnsupportedOperationException();
-    }
+    public static final String PREFIX = ChatColor.GREEN + "[ArcanusVerse]";
 
     public static Main getInstance() {
         return Main.getPlugin(Main.class);
@@ -18,7 +15,8 @@ public final class Main extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        ConfigFactory.loadConfigurationFiles();
+        ConfigurationLoader.loadConfigurationFiles();
+        WorldLoader.getInstance().loadWorlds();
     }
 
     @Override
