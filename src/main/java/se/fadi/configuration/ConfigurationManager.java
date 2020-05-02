@@ -9,9 +9,9 @@ public class ConfigurationManager {
 
     private static ConfigurationManager configManager;
 
-    private ConfigurationFile worldConfig;
+    private final ConfigurationFile worldConfig;
 
-    private List<ConfigurationFile> configurationFiles;
+    private final List<ConfigurationFile> configurationFiles;
 
     private ConfigurationManager() {
         worldConfig = new ConfigurationFile("worlds.yml");
