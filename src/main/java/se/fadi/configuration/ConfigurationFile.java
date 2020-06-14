@@ -39,10 +39,9 @@ public class ConfigurationFile {
         configurationFile = YamlConfiguration.loadConfiguration(file);
     }
 
-    public void saveConfig(File file, FileConfiguration config) {
+    public void saveConfig() {
         try {
-            config.save(file);
-            Bukkit.getServer().getConsoleSender().sendMessage(Main.PREFIX + ChatColor.GREEN + " The config " + file.getName() + " has been successfully saved.");
+            configurationFile.save(file);
         } catch (IOException e) {
             Bukkit.getServer().getConsoleSender().sendMessage(Main.PREFIX + ChatColor.RED + " ERROR: Could not save " + file.getName() + ".");
         }
@@ -50,11 +49,9 @@ public class ConfigurationFile {
 
     public void reloadConfig() {
         configurationFile = YamlConfiguration.loadConfiguration(file);
-        Bukkit.getServer().getConsoleSender().sendMessage(Main.PREFIX + ChatColor.GREEN + " The config " + fileName + " has been reloaded.");
-
     }
 
-    public FileConfiguration getConfigurationFile() {
+    public FileConfiguration getConfig() {
         return configurationFile;
     }
 }

@@ -1,7 +1,5 @@
 package se.fadi.configuration;
 
-import org.bukkit.configuration.file.FileConfiguration;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,11 +8,15 @@ public class ConfigurationManager {
     private static ConfigurationManager configManager;
 
     private final ConfigurationFile worldConfig;
+    private final ConfigurationFile portalConfig;
+    private final ConfigurationFile languageConfig;
 
     private final List<ConfigurationFile> configurationFiles;
 
     private ConfigurationManager() {
         worldConfig = new ConfigurationFile("worlds.yml");
+        portalConfig = new ConfigurationFile("portals.yml");
+        languageConfig = new ConfigurationFile("language.yml");
         configurationFiles = new ArrayList<>();
     }
 
@@ -26,13 +28,23 @@ public class ConfigurationManager {
         return configManager;
     }
 
-    public FileConfiguration getWorldConfig() {
-        return worldConfig.getConfigurationFile();
+    public ConfigurationFile getWorldConfig() {
+        return worldConfig;
+    }
+
+    public ConfigurationFile getPortalConfig() {
+        return portalConfig;
+    }
+
+    public ConfigurationFile getLanguageConfig() {
+        return languageConfig;
     }
 
     public List<ConfigurationFile> getConfigurationFiles() {
         if (configurationFiles.isEmpty()) {
             configurationFiles.add(worldConfig);
+            configurationFiles.add(portalConfig);
+            configurationFiles.add(languageConfig);
         }
 
         return configurationFiles;

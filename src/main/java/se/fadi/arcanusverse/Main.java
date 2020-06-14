@@ -2,7 +2,10 @@ package se.fadi.arcanusverse;
 
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
+import se.fadi.commands.CommandLoader;
 import se.fadi.configuration.ConfigurationLoader;
+import se.fadi.language.MessageLoader;
+import se.fadi.portal.PortalJoinEvent;
 import se.fadi.worldloader.WorldLoader;
 
 public final class Main extends JavaPlugin {
@@ -16,7 +19,10 @@ public final class Main extends JavaPlugin {
     @Override
     public void onEnable() {
         ConfigurationLoader.loadConfigurationFiles();
-        WorldLoader.getInstance().loadWorlds();
+        WorldLoader.loadWorlds();
+        CommandLoader.loadCommands();
+        MessageLoader.loadMessages();
+        this.getServer().getPluginManager().registerEvents(new PortalJoinEvent(), this);
     }
 
     @Override
